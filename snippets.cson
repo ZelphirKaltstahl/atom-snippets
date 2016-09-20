@@ -1,0 +1,248 @@
+'.source.common.lisp':
+	'define function':
+		'prefix': 'def'
+		'body': """
+		(defun ${1:name} (${2:params})
+			(${3:code}))
+		"""
+	'conditional':
+		'prefix': 'cond'
+		'body': """
+		(cond
+			((${1:predicate}) (${2:code}))
+			((${3:predicate}) (${4:code}))
+			(t (${5:code})))
+		"""
+	'if':
+		'prefix': 'if'
+		'body': """
+		(if
+			(${1:predicate})
+			(${2:then})
+			(${3:else}))
+		"""
+	# 'if inline':
+	# 	'prefix': 'if'
+	# 	'body': """
+	# 	(if
+	# 		(${1:predicate})
+	# 		(${2:then})
+	# 		(${3:else}))
+	# 	"""
+	'lambda':
+		'prefix': 'lambda'
+		'body': """
+		(lambda (${1:parameters}) (${2:code}) (${3:return}))
+		"""
+
+
+
+'.source.gfm':
+	'fraction':
+		'prefix': 'frac'
+		'body': """
+		frac{${1:numerator}}{${2:denominator}}${3:}
+		"""
+	'limes':
+		'prefix': 'lim'
+		'body': """
+		\\\\lim_{${1:lim vars}}
+		"""
+	'cdot':
+		'prefix': 'cdot'
+		'body': """
+		cdot
+		"""
+	'sqrt':
+		'prefix': 'sqrt'
+		'body': """
+		\\\\sqrt{${1:term}}
+		"""
+	'exists':
+		'prefix': 'exists'
+		'body': """
+		exists
+		"""
+	'forall':
+		'prefix': 'forall'
+		'body': """
+		forall
+		"""
+	'infinity':
+		'prefix': 'infty'
+		'body': """
+		infty
+		"""
+	'prime':
+		'prefix': 'prime'
+		'body': """
+		prime
+		"""
+	'negate':
+		'prefix': 'neg'
+		'body': """
+		neg
+		"""
+	'integral':
+		'prefix': 'int'
+		'body': """
+		\\\\int_{${1:lower}}^{${2:upper}} ${3:term}
+		"""
+	'empty set':
+		'prefix': 'emptyset'
+		'body': """
+		emptyset
+		"""
+	'set difference':
+		'prefix': 'setminus'
+		'body': """
+		setminus
+		"""
+	'element of':
+		'prefix': 'in'
+		'body': """
+		in
+		"""
+	'abs':
+		'prefix': 'abs'
+		'body': """
+		\\\\left\\\\vert{${1:term}}\\\\right\\\\vert
+		"""
+	'equivalent':
+		'prefix': 'equiv'
+		'body': """
+		equiv
+		"""
+	'approximately':
+		'prefix': 'approx'
+		'body': """
+		approx
+		"""
+	'>=':
+		'prefix': 'greater or equal'
+		'body': """
+		geq
+		"""
+	'<=':
+		'prefix': 'lesser or equal'
+		'body': """
+		leq
+		"""
+	'!=':
+		'prefix': 'not equal'
+		'body': """
+		neq
+		"""
+	'=>':
+		'prefix': 'rightarrow'
+		'body': """
+		Rightarrow
+		"""
+	'natural numbers':
+		'prefix': 'natural'
+		'body': """
+		\\\\mathbb{N}
+		"""
+	'integer numbers':
+		'prefix': 'integer'
+		'body': """
+		\\\\mathbb{Z}
+		"""
+	'real numbers':
+		'prefix': 'real'
+		'body': """
+		\\\\mathbb{R}
+		"""
+	'rational number':
+		'prefix': 'rational'
+		'body': """
+		\\\\mathbb{Q}
+		"""
+
+
+'.source.racket':
+	'define':
+		'prefix': 'def'
+		'body': """
+		define (${1:fname} ${2:params})
+			(${3:code})
+		"""
+
+	'define constant':
+			'prefix': 'def '
+			'body': """
+			define ${1:cname} ${2:value}
+			"""
+
+	'lambda':
+		'prefix': 'lambda'
+		'body': """
+		lambda (${1:params})
+			(${2:code})
+		"""
+
+	'inline lambda':
+		'prefix': 'lambda '
+		'body': """
+		lambda (${1:params}) (${2:code})
+		"""
+
+	'let':
+		'prefix': 'let'
+		'body': """
+		let
+			((${1:expr1} ${2:val1}))
+			(body)
+		"""
+
+	'and':
+		'prefix': 'and'
+		'body': """and
+		(${1:predicate1})
+		(${2:predicate2})"""
+	'inline and':
+		'prefix': 'and '
+		'body': """and (${1:predicate1}) (${2:predicate2})"""
+
+	'or':
+		'prefix': 'or'
+		'body': """or
+		(${1:predicate1})
+		(${2:predicate2})"""
+	'inline or':
+		'prefix': 'or '
+		'body': """or (${1:predicate1}) (${2:predicate2})"""
+
+	'if':
+		'prefix': 'if'
+		'body': """
+		if
+			(${1:condition})
+			${2:(then)}
+			(${3:else})
+		"""
+
+	'inline if':
+		'prefix': 'if '
+		'body': """
+		if (${1:condition}) ${2:(then)} (${3:else})
+		"""
+
+	'conditional':
+		'prefix': 'cond'
+		'body': """
+		cond
+			((${1:predicate1}) (${2:consequent1}))
+			((${3:predicate2}) (${4:consequent2}))
+			((${5:predicate3}) (${6:consequent3}))
+		"""
+
+	'display primitive':
+		'prefix': 'display'
+		'body': """
+		display ${1:expr}
+		"""
+
+	'time':
+		'prefix': 'time'
+		'body': """time (${1:code})"""
